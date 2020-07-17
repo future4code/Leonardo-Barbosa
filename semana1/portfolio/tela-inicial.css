@@ -1,0 +1,31 @@
+    #topo{
+    background-color: rgb(235, 235, 235);
+    
+    }
+
+    .menu{
+       margin-left: 15% ;
+       
+    }
+
+    h1{
+        margin: 50px;
+        display: inline;
+            
+    }
+
+   #texto-meio{
+       padding-top: 20%;
+       padding-left: 50px;
+    }
+   #roda-pe{
+      
+     
+    
+   }
+   body{
+       background-color: gold;
+       max-width: 100%;
+       max-height: 100%;
+       margin:auto;
+   }
