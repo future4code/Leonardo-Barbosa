@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+}
+
+header{
+    background-color: brown;
+    height: 80px;
+    width: 100%;
+    }
+
+h3{
+    color: slategray;
+    display: inline;
+    position: relative;
+    left: 10%;
+    top: 20%;
+    font-family: monospace;
+    font-size: 3em;
+    
+    
+}
+
+input , button{
+
+    position: relative;
+    left: 50%;
+    top: 15%;
+    font-size: 20px;
+}
+
+#meio{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left:100px;
+    margin-bottom: 50px;
+   
+    
+}
+
+.vi{
+    height: 15em ;
+    width: 15em;
+      
+    
+    
+}
+
+footer{
+    background-color: darkblue;
+    height: 20vh;
+    width: 100%;
+}
+
+h2{
+    color: slategray;
+    display: inline;
+    position: relative;
+    left:40%;
+    top: 40%;
+    font-family: monospace;
+    font-size: 3em;
+
+}
