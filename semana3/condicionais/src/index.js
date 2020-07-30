@@ -22,73 +22,73 @@ Se o resto for diferente de 0 ele não passou. */
 
 // 4 
 
-// const idade = Number(prompt("Qual a sua idade?"))
-// let idadeDigitada = idade
+const idade = Number(prompt("Qual a sua idade?"))
+let idadeDigitada = idade
 
-// if (idadeDigitada >= 18){
-//     console.log("Você pode dirigir")
-// } else {
-//     console.log("Você não pode dirigir")
-// }
-
-
-// // 5 
+if (idadeDigitada >= 18){
+    console.log("Você pode dirigir")
+} else {
+    console.log("Você não pode dirigir")
+}
 
 
-// let turno = prompt("Digite M (matutino) ou V (Vespertino) ou N (Noturno)")
-
-// if (turno === "m"){
-//     console.log("Bom-Dia")
-// } else if(turno === "v"){ 
-//     console.log("Boa-Tarde")
-// } else if (turno === "n") {
-//     console.log("Boa-Noite")
-// } else {
-//     console.log("Tente novamente")
-// }
+// 5 
 
 
-// // 6
-// let turno = prompt("Digite M (matutino) ou V (Vespertino) ou N (Noturno)")
-// switch (turno){
-//     case "m":
-//         console.log("Bom-Dia")
-//         break
-//     case "v":
-//         console.log("Boa-Tarde")
-//         break
-//     case "n":
-//         console.log("Boa-Noite")
-//         break
-//     default:
-//         console.log("Tente novamente")
-//         break
-// }
+let turno = prompt("Digite M (matutino) ou V (Vespertino) ou N (Noturno)")
+
+if (turno === "m"){
+    console.log("Bom-Dia")
+} else if(turno === "v"){ 
+    console.log("Boa-Tarde")
+} else if (turno === "n") {
+    console.log("Boa-Noite")
+} else {
+    console.log("Tente novamente")
+}
 
 
-// // 7
-// let filme = prompt("Qual o gênero de filme que iremos assistir?")
-// let ingresso = Number(prompt("Qual é o valor do ingresso?"))
+// 6
+let turno = prompt("Digite M (matutino) ou V (Vespertino) ou N (Noturno)")
+switch (turno){
+    case "m":
+        console.log("Bom-Dia")
+        break
+    case "v":
+        console.log("Boa-Tarde")
+        break
+    case "n":
+        console.log("Boa-Noite")
+        break
+    default:
+        console.log("Tente novamente")
+        break
+}
 
-// if (filme === "fantasia" & ingresso < 15){
-//     console.log("Bom filme!")
 
-// }   else{
-//     console.log("Escolha outro filme :(")
-// }
+// 7
+let filme = prompt("Qual o gênero de filme que iremos assistir?")
+let ingresso = Number(prompt("Qual é o valor do ingresso?"))
+
+if (filme === "fantasia" & ingresso < 15){
+    console.log("Bom filme!")
+
+}   else{
+    console.log("Escolha outro filme :(")
+}
 
 // Desafio 1
 
-// let filme = prompt("Qual o gênero de filme que iremos assistir?")
-// let ingresso = Number(prompt("Qual é o valor do ingresso?"))
+let filme = prompt("Qual o gênero de filme que iremos assistir?")
+let ingresso = Number(prompt("Qual é o valor do ingresso?"))
 
-// if (filme === "fantasia" & ingresso < 15){
-//     let snack = prompt("Que snack você irá comprar?")
-//     console.log("Bom filme! e aproveite o", snack)
+if (filme === "fantasia" & ingresso < 15){
+    let snack = prompt("Que snack você irá comprar?")
+    console.log("Bom filme! e aproveite o", snack)
 
-// }   else{
-//     console.log("Escolha outro filme :(")
-// }
+}   else{
+    console.log("Escolha outro filme :(")
+}
 
 // Desafio 2
 
