@@ -15,8 +15,7 @@ console.log("Bem Vindo ao jogo de Blackjack")
   
    if (confirm("Quer iniciar uma nova rodada?"))  {
       
-      const carta = comprarCarta()
-         
+      const   carta = comprarCarta()
       const   cartaUm = comprarCarta()
       const   cartaDois = comprarCarta()
       const   cartaTres = comprarCarta()
@@ -25,7 +24,7 @@ console.log("Bem Vindo ao jogo de Blackjack")
       const   pcResultado = cartaDois.valor + cartaTres.valor
          
       console.log("Usuário - cartas:", carta.texto, cartaUm.texto, "- pontuação", usuarioResultado)
-      console.log("Computado - cartas:", cartaDois.texto, cartaTres.texto, "- pontuação", pcResultado)
+      console.log("Computador - cartas:", cartaDois.texto, cartaTres.texto, "- pontuação", pcResultado)
    
    if (pcResultado === usuarioResultado){
          console.log("Empate!")
