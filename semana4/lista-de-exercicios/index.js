@@ -75,3 +75,12 @@
 
     // recebeArray([2, 3, 4, 5, 6])
 
+// 2 
+
+    // let funcaoNaoNomeada = (recebealerta) => {
+    //     return recebealerta
+    // } 
+
+    // const resultado = funcaoNaoNomeada(alert("Hello Future4"))
+
+    
