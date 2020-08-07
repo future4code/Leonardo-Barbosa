@@ -39,4 +39,26 @@
 //     console.log("Triângulo Equilátero")
 // } else {
 //     console.log("Triângulo Isósceles")
-}
+//}
+
+// 5 -
+// const numeroUm = Number(prompt("Digite um Número"))
+// const numeroDois = Number(prompt("Digite um Número"))
+    
+//     if (numeroUm > numeroDois){
+//         console.log(`O maior é: ${numeroUm}`)
+//     } else {
+//         console.log(`O maior é: ${numeroDois}`)
+//     }
+
+//     if (numeroUm % numeroDois === 0){
+//         console.log(`${numeroUm} é divisível por ${numeroDois}`)
+//     } else{
+//         console.log(`${numeroUm} não é divisível por ${numeroDois}`)
+//     }
+
+// const resultado = (numeroUm - numeroDois)
+//     if (resultado >= 0){
+//     console.log(`A diferença entre eles é ${resultado}`)
+//     }
+
