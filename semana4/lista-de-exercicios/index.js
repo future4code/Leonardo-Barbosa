@@ -20,8 +20,23 @@
 //   - E True
 
 // 3 - 
-const quantidadeDeNumerosPares
-let i = 0 
-while(i <= quantidadeDeNumerosPares){
-    console.log(i*2)
+// const quantidadeDeNumerosPares = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//  for(let num of quantidadeDeNumerosPares){
+//      if (num % 2 === 0){
+//          console.log(num)
+//      }
+//  }
+
+// 4 -
+// const a = Number(prompt("Digite o tamanho do lado a"))
+// const b = Number(prompt("Digite o tamanho do lado b"))
+// const c = Number(prompt("Digite o tamanho do lado c"))
+
+// if (a !== b && b !== c && a !== c){
+//     console.log("Triângulo Escaleno")
+// } else if ( a === b && b === c && a === c){
+//     console.log("Triângulo Equilátero")
+// } else {
+//     console.log("Triângulo Isósceles")
 }
