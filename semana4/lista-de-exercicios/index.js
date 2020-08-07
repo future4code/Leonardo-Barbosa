@@ -88,3 +88,14 @@
 // 1 - Objetos são formas de representar dados complexos de uma maneira organizada e Arrays seria uma lista de itens que podemos acessar.
 
 // 2 
+    // function criaRetangulo (lado1, lado2) {
+    //     const largura = lado1
+    //     console.log(lado1)
+    //     const altura = lado2
+    //     console.log(lado2)
+    //     const perimetro = 2 * (lado1 + lado2)
+    //     console.log(perimetro)
+    //     const area = lado1 * lado2
+    //     console.log(area)
+    // }
+    //     criaRetangulo(20, 30)
