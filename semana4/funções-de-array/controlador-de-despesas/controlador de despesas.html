@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="controlador de despesas.js">
+    <script src="controlador de despesas.js" defer ></script>
+    <title>Controlador de Despesas</title>
+</head>
+<body>
+    
+    <main>
+        <h1>Controlador de Despesas</h1>
+        <h3>Cadastrar Despesas</h3>
+        <nav>
+            <form> 
+                <label for="valor" >Valor:</label>
+                <input type="number" id="valor" > <p></p>
+                <label value= "">Tipo (Casa, Viagem, Alimentação, Transporte, Outros) </label>
+                <select  id="tipos-de-despesas">
+                    <option value="Casa">Casa</option>
+                    <option value="Viagem">Viagem</option>
+                    <option value="Alimentação">Alimentação</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Outros">Outros</option>    
+                </select> <p></p>
+                <label for="descricao">Descrição:</label>
+                <input type="text" name="" id="descricao">
+            </form> <p></p>
+
+            <button onclick="cadastrarDespesas()">Cadastrar Despesas</button>
+        </nav>
+    
+        <!-- Despesas Detalhadas -->
+        
+    <h1>Despesas Detalhadas</h1>
+        <nav>
+            <form>
+                <label value= "">Tipo (Casa, Viagem, Alimentação, Transporte, Outros) </label>
+                    <select  id="despesas-detalhadas">
+                        <option value="Casa">Casa</option>
+                        <option value="Viagem">Viagem</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Outros">Outros</option>    
+                    </select> <p></p>
+                        <label for="valor-minimo">Valor Mínimo:</label>
+                        <input type="number" name="" id="valor-minimo"> <p></p>
+                        <label for="valor-maximo">Valor Máximo:</label>
+                        <input type="number" name="" id="valor-maximo">
+            </form> <p></p>
+                <button onclick="filtrarDespesas()">Filtrar</button>
+                <button onclick="limparFiltro()">Limpar Filtro</button>
+        </nav>
+    
+        <!-- Extrato -->
+    
+        <h1>Extrato</h1>
+        <h3>Valor total:</h3>
+    
+    </main>
+
+</body>
+</html>
