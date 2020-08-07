@@ -62,3 +62,16 @@
 //     console.log(`A diferença entre eles é ${resultado}`)
 //     }
 
+
+// Exercícios de Funções
+
+// 1 
+    
+    // function recebeArray(array){
+    //     const arrayRecebido = array
+    //     console.log(arrayRecebido)
+        
+    // }
+
+    // recebeArray([2, 3, 4, 5, 6])
+
