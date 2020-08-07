@@ -83,4 +83,8 @@
 
     // const resultado = funcaoNaoNomeada(alert("Hello Future4"))
 
-    
+// Exercícios de Objetos
+
+// 1 - Objetos são formas de representar dados complexos de uma maneira organizada e Arrays seria uma lista de itens que podemos acessar.
+
+// 2 
