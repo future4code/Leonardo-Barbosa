@@ -99,3 +99,13 @@
     //     console.log(area)
     // }
     //     criaRetangulo(20, 30)
+
+// 3 
+    const filmeFavorito = {
+        Título: ["O poderoso chefão", "Era uma vez no oeste"],
+        Ano: ["1972", "1969"],
+        Diretor: ["Francis Ford Coppola", "Sergio Leone"],
+        Atores: ["Marlon Brando, Al Pacino, James Caan", "Henry Fonda, Charles Bronson, Frank Wolff"]
+    }
+        console.log(`Venha assistir ao ${filmeFavorito.Título[0]}, de ${filmeFavorito.Ano[0]}, dirigido por ${filmeFavorito.Diretor[0]} e estrelado por ${filmeFavorito.Atores[0]}`)
+        console.log(`Venha assistir ao ${filmeFavorito.Título[1]}, de ${filmeFavorito.Ano[1]}, dirigido por ${filmeFavorito.Diretor[1]} e estrelado por ${filmeFavorito.Atores[1]}`)
