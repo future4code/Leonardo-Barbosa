@@ -1,25 +1,28 @@
 import React from 'react'
+import PerguntaAberta from "./PerguntaAberta"
+import PerguntaOpcoes from "./PerguntaOpcoes"
 
-function Etapa1(){
+export class Etapa1 extends React.Component{
+
+    render() {
     return(
         <div>
             <h3>ETAPA 1 - Dados Gerais</h3>
-                <p>1. Qual o Seu Nome?</p>
-                <input></input>
-                <p>2. Qual a sua Idade?</p>
-                <input></input>
-                <p>3. Qual o Seu Email?</p>
-                <input></input>
-                <p>4. Qual a sua Escolaridade</p>
-                <select>
-                    <option>Ensino médio incompleto</option>
-                    <option>Ensino médio completo</option>
-                    <option>Ensino superior incompleto</option>
-                    <option>Ensino superior completo</option>
-                </select>
+                <PerguntaAberta pergunta={"1. Qual o seu nome?"} />
+                <PerguntaAberta pergunta={"2. Qual sua idade?"} />
+                <PerguntaAberta pergunta={"3. Qual seu email?"} />
+                <PerguntaOpcoes
+                    pergunta={"4. Qual a sua escolaridade?"}
+                    opcoes={[
+                        "Ensino médio incompleto",
+                        "Ensino médio completo",
+                        "Ensino superior incompleto",
+                        "Ensino superior completo"
+                    ]}
+                />
 
         </div>       
     )
-}
+}}
 
 export default Etapa1
