@@ -29,6 +29,11 @@ const BotaoSalvar = styled.button`
   cursor: pointer;
   margin-top:10px;
 `
+const BotaoDeletar = styled.span`
+  color: red;
+  cursor: pointer;
+`
+
 const ListaUser = styled.form`
   border: 2px solid black;
   width: 20%;
@@ -37,6 +42,14 @@ const ListaUser = styled.form`
   align-items: center;
   margin-top:10px;
 
+`
+
+const Lista = styled.li`
+  display: flex;
+  min-width: 60px;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
 `
 
 class App extends React.Component {
@@ -96,6 +109,27 @@ class App extends React.Component {
       })
   }
 
+  removeUser = () =>{
+    const request = axios.delete(
+      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/02ab59d3-910e-440a-a6ae-3d4b73b11b96",
+      {
+        headers:{
+            Authorization: "leonardo-oliveira-jackson"
+        }
+      }
+    )
+    
+    request
+      .then((resposta) => {
+        
+        alert("Deletado com Sucesso")
+      })
+      .catch((erro) => {
+        alert("Tente novamente")
+      })
+
+
+  }
 
   componentDidMount(){
       this.getUsers()
@@ -130,8 +164,9 @@ class App extends React.Component {
             <ListaUser>
               <h3>Lista de usuarios:</h3>
               {this.state.usuarios.map((item) => {
-                return <li key={item.id}>{item.name}</li>
-              })}
+                return <Lista key={item.id}>{item.name}
+                <BotaoDeletar onClick={this.removeUser}>X</BotaoDeletar> 
+                </Lista>})}
             </ListaUser>
         </div>
       );
