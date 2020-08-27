@@ -1,175 +1,57 @@
 import React from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
+import CreateUsers from './components/CreateUsers'
+import UserList from './components/UserList'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
-  width: 20%;
-  margin: 0 auto;
-  padding: 30px;
-  align-items: center;
-  margin-top:50px;
+const BotaoMudarDePag = styled.button`
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  margin: 10px 10px;
+  background-color: ghostwhite;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 1s, background-color 2s ease-out;
+  font-family: monospace;
+  font-size: 15px;
 
-  div {
-    margin-top: 10px;
-    
+  :hover {
+    box-shadow: 10px 0px 10px 1px rgba(0, 0, 0, 0.35);
+    background-color: blueviolet;
+    color:white;
   }
 `
 
-const BotaoSalvar = styled.button`
-  margin: 0 auto;
-  background-color: blueviolet;
-  color: white;
-  border: none;
-  position: relative;
-  padding: 0.5em 1em;
-  outline: none;
-  cursor: pointer;
-  margin-top:10px;
-`
-const BotaoDeletar = styled.span`
-  color: red;
-  cursor: pointer;
-`
-
-const ListaUser = styled.form`
-  border: 2px solid black;
-  width: 20%;
-  margin: 0 auto;
-  padding: 30px;
-  align-items: center;
-  margin-top:10px;
-
-`
-
-const Lista = styled.li`
-  display: flex;
-  min-width: 60px;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  padding: 10px 0;
-`
 
 class App extends React.Component {
-
   state = {
-    name:"",
-    email:"",
-    usuarios:[]
+    pagina: "CreateUsers"
   }
 
-
-  getUsers = () => {
-    const request = axios.get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        {
-            headers:{
-                Authorization: "leonardo-oliveira-jackson"
-            }
-        }
-    )
-
-    request
-        .then((resposta) => {
-            this.setState({usuarios: resposta.data})
-        })
-        .catch((erro) => {
-            console.log(erro)
-        })
+  mudarPagina = () => {
+    this.state.pagina === "CreateUsers" ? 
+    this.setState({pagina: "UserList"}) : 
+    this.setState({pagina: "CreateUsers"})
   }
-  
-
-  addUser = () =>{
-    const body = {
-      name: this.state.name,
-      email: this.state.email
-    }
-
-    const request = axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      body,
-      {
-        headers: {
-          Authorization: "leonardo-oliveira-jackson"
-        }
-      }
-    )
-
-    request 
-      .then((resposta) =>{
-        this.getUsers()
-        alert("Salvo com Sucesso")
-        this.setState({name:""})
-        this.setState({email:""})
-      })
-      .catch((erro) => {
-        alert("Verificar Nome ou E-mail")
-      })
-  }
-
-  removeUser = () =>{
-    const request = axios.delete(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/02ab59d3-910e-440a-a6ae-3d4b73b11b96",
-      {
-        headers:{
-            Authorization: "leonardo-oliveira-jackson"
-        }
-      }
-    )
-    
-    request
-      .then((resposta) => {
-        
-        alert("Deletado com Sucesso")
-      })
-      .catch((erro) => {
-        alert("Tente novamente")
-      })
-
-
-  }
-
-  componentDidMount(){
-      this.getUsers()
-  }
-
 
   render(){
-    const onChangeInputName = (e) => {
-      this.setState({name: e.target.value})
+    const currentpage = () => {
+      if (this.state.pagina === "CreateUsers"){
+        return <CreateUsers />
+      } else if (this.state.pagina === "UserList"){
+        return <UserList/>
+      }
     }
-
-    const onChangeInputEmail = (e) => {
-      this.setState({email: e.target.value})
-    }
-
+    
     return (
-        
-        <div>
-          <Container>
-            <div>
-                <label forHtml="name">Nome: </label>
-                <input value={this.state.name} onChange={onChangeInputName}/>
-            </div>
-            <div>
-                <label forHtml="email">Email: </label>
-                <input value={this.state.email} onChange={onChangeInputEmail}/>
-            </div>
-            
-            <BotaoSalvar onClick={this.addUser}>Salvar</BotaoSalvar>   
-            
-          </Container>
-            <ListaUser>
-              <h3>Lista de usuarios:</h3>
-              {this.state.usuarios.map((item) => {
-                return <Lista key={item.id}>{item.name}
-                <BotaoDeletar onClick={this.removeUser}>X</BotaoDeletar> 
-                </Lista>})}
-            </ListaUser>
-        </div>
-      );
+     <div>
+       <BotaoMudarDePag onClick={this.mudarPagina}>Mudar Página</BotaoMudarDePag>
+       {currentpage()}
+     </div>
+    )
   }
 }
 
