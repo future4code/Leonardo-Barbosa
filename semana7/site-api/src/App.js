@@ -14,7 +14,7 @@ class App extends React.Component {
       temp: '',
       humidity: '',
       climate:'',
-      wind: ''
+      wind: '',
     }
   
 
@@ -27,8 +27,8 @@ class App extends React.Component {
     axios.get(baseUrl)
 
     .then((response) => {
-      console.log(response.data.results)
-      this.setState({city:response.data.results.city_name, 
+      
+      this.setState({city:response.data.results.city, 
       date:response.data.results.date,
       temp:response.data.results.temp,
       humidity:response.data.results.humidity,
@@ -38,18 +38,22 @@ class App extends React.Component {
       console.log(error)
     })
   }
+
    
   render(){
     return (
       <div className="App">
         <Header>Clima da sua Região</Header>
-        <hr />
-        <p>Cidade: {this.state.city}</p>
-        <p>Data: {this.state.date}</p>
-        <p>Temperatura: {this.state.temp}°</p>
-        <p>Humidade: {this.state.humidity}</p>
-        <p>Clima: {this.state.climate}</p>
-        <p>Velocidade do Vento: {this.state.wind}</p>
+        <div>
+          <hr />
+          <p>Cidade: {this.state.city}</p>
+          <p>Data: {this.state.date}</p>
+          <p>Temperatura: {this.state.temp}°</p>
+          <p>Umidade: {this.state.humidity}</p>
+          <p>Clima: {this.state.climate}</p>
+          <p>Velocidade do Vento: {this.state.wind}</p>
+          <button onClick={this.getInformation}>Atualizar</button>
+        </div>
       </div>
     );
   }
