@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
+
 
 class NewPlayList extends React.Component {
   state = {
@@ -32,7 +32,7 @@ class NewPlayList extends React.Component {
   render(){
     return (
       <div>
-            <label>Nome da PlayList:</label>
+            <label>Nome da PlayList: </label>
             <input value ={this.state.playList} onChange={this.onChangeInputName}/>
             <button onClick={this.createPlayList}>Adicionar</button>
       </div>

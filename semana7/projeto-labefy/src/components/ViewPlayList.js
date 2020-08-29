@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
+
 
 
 class ViewPlayList extends React.Component {
@@ -13,26 +13,30 @@ class ViewPlayList extends React.Component {
     }
 
   getAllList = () => {
-      const body = {
-          quantity: '',
-          list: [{
-              id: '',
-              name:''
-          }]
-        }
-      axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists', {
+    
+    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists', {
           headers: {
             Authorization: 'leonardo-oliveira-jackson'
           }
       }).then((response) => {
-            console.log(response.data.result)
-            this.setState({lista: response.data.result})
-      })
-        .catch((error) => {
-            console.log(error)
+          this.setState({lista: response.data.result.list})
+      }).catch((error) => {
+            
         })
-        
-    }
+  }
+
+  removeList = (listId) => {
+    
+    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${listId}`, {
+      headers: {
+        Authorization: 'leonardo-oliveira-jackson'
+      }
+    }).then((response) => {
+      this.getAllList()
+      alert("Lista Excluída")
+    })
+      .catch((error) => {})
+  }   
   
   
   render(){
@@ -40,7 +44,9 @@ class ViewPlayList extends React.Component {
       <div>
           <h2>PlayList:</h2>
           {this.state.lista.map((list) => {
-              return <li key={list.id}>{list.name}</li>
+              return <li key={list.id}>{list.name}
+              <button onClick={() => this.removeList(list.id)}> X </button>
+              </li>
           })}
       </div>
     )
