@@ -19,7 +19,8 @@ class ViewPlayList extends React.Component {
             Authorization: 'leonardo-oliveira-jackson'
           }
       }).then((response) => {
-          this.setState({lista: response.data.result.list})
+        console.log(response)  
+        this.setState({lista: response.data.result.list})
       }).catch((error) => {
             
         })

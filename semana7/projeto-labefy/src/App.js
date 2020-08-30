@@ -1,6 +1,7 @@
 import React from 'react';
 import NewPlayList from './components/NewPlayList';
 import ViewPlayList from './components/ViewPlayList'
+import GetPlayList from './components/GetPlayList'
 
 class App extends React.Component {
   
@@ -11,7 +12,7 @@ class App extends React.Component {
       <div>
       <NewPlayList />
       <ViewPlayList />
-      
+      <GetPlayList />
       </div>
     )
   }
