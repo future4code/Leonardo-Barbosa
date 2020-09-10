@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
-import Post from './components/Post/Post';
+//import Post from './components/Post/Post';
 
 class App extends React.Component {
-  render() {
+
+    render() {
+    
     return (
       <div className={'app-container'}>
+                          
         <Post
           nomeUsuario={'Ludmila'}
           fotoUsuario={'https://picsum.photos/50/50'}
