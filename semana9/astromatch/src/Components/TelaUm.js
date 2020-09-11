@@ -7,9 +7,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import axios from 'axios';
 import astromatch from '../img/astromatch.svg'
 
-const ContainerPrincipal = styled.div`
 
-`
 const Botoes = styled.div`
   display:flex;
   justify-content:space-evenly;
@@ -25,7 +23,8 @@ img{
 }
 p{
   margin-left:10px;
-  font-family:Verdana;
+  font-family:Helvetica;
+  font-size: 18px;
 } 
 `
 const ContainerHeader = styled.div`
@@ -86,7 +85,7 @@ function TelaUm(props) {
 
   return (
     
-    <ContainerPrincipal >
+    <div >
         <ContainerHeader>
           <img src={astromatch}/>
           <button>
@@ -108,7 +107,7 @@ function TelaUm(props) {
               </Fab>
           </Botoes>
 
-    </ContainerPrincipal>
+    </div>
   );
 }
 

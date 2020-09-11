@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import TelaUm from './Components/TelaUm'
 import TelaDois from './Components/TelaDois'
 import axios from 'axios'
+import Button from '@material-ui/core/Button'
 
 
 
@@ -18,7 +19,7 @@ const ContainerMenu = styled.div`
   flex-direction:column;
   margin-top:100px;    
   background-color:floralwhite;
-  border: 15px groove gold;
+  border: 15px groove #f68878;
   height:510px;
   width: 410px;  
 `
@@ -62,7 +63,7 @@ function App() {
     <ContainerMenu>
       {paginaAtual()}
     </ContainerMenu>
-      <button onClick={ () => limparCatchs()} >Zerar matches</button>
+    <Button onClick={ () => limparCatchs()}  variant="outlined">Resetar matches</Button>
   </ContainerPai>  
   );
 }

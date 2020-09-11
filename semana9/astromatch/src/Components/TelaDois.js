@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import astromatch from '../img/astromatch.svg'
+import Avatar from '@material-ui/core/Avatar'
 
 
 const ContainerHeader = styled.div`
@@ -25,6 +26,17 @@ img {
   margin-right:-30px;
    
 }
+`
+const ContainerMatches = styled.div`
+  display:flex;
+  margin:5px;
+  
+  p{
+    margin:5px;
+    font-family:Helvetica;
+    margin-top:10px;
+  }
+ 
 `
 
 
@@ -49,10 +61,17 @@ function TelaDois(props) {
         <button onClick={props.alterarPagina} ><ArrowBackIosIcon /></button>
         <img src={astromatch}/>
       </ContainerHeader>
+        <hr></hr>
       <div>   
         {deuMatch.map((pessoa) => {
-          return <div key={pessoa.id}> <img width="100px" height="100px" src={pessoa.photo} /> <p>{pessoa.name}</p> </div>
-        })}
+          return (
+          <ContainerMatches key={pessoa.id}> 
+            <Avatar src={pessoa.photo} /> 
+            <p>{pessoa.name}</p> 
+          </ContainerMatches>
+          )
+        })
+      }
       </div> 
     </div>
   );
