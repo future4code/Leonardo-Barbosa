@@ -15,16 +15,31 @@ const Botoes = styled.div`
 `
 
 const ContainerPerfil = styled.div`
+  margin-left:3px;
 
+img{
+  width:400px;
+  height:300px;
+  border: 2px solid sienna;
+}
+p{
+  margin-left:10px;
+  font-family:Verdana;
+} 
 `
 const ContainerHeader = styled.div`
   display:flex;
   justify-content:space-between;
   margin-left:150px;
+  padding:5px;
 
    button{
     display:flex;
     justify-content: flex-end;
+    background:none;
+    border:none;
+    outline:none;
+    cursor:pointer;
    }
 `
 
@@ -48,7 +63,6 @@ function TelaUm(props) {
   return (
     
     <ContainerPrincipal >
-      {/* {getProfile()} */}
         <ContainerHeader>
           <label>Astro Match</label>
           <button>
@@ -57,7 +71,7 @@ function TelaUm(props) {
         </ContainerHeader>
         
         <ContainerPerfil key={pegarProfile.id}> 
-          <img width="400vw" height="300vh" src={pegarProfile.photo}/>
+          <img src={pegarProfile.photo}/>
           <p>{pegarProfile.name}, {pegarProfile.age}, {pegarProfile.bio}</p>       
         </ContainerPerfil> 
           
@@ -66,7 +80,7 @@ function TelaUm(props) {
                 <CloseIcon />
               </Fab>
               <Fab>
-                <FavoriteIcon />
+                <FavoriteIcon color="secondary" />
               </Fab>
           </Botoes>
 

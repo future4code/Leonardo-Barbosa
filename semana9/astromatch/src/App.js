@@ -14,14 +14,12 @@ const ContainerPai = styled.div`
 
 const ContainerMenu = styled.div`
   display:flex;
-  /* align-items:center; */
   flex-direction:column;
   margin-top:100px;    
-  background-color:gold;
-  border: 2px solid black;
-  height:500px;
-  width: 400px;
-   
+  background-color:floralwhite;
+  border: 15px groove gold;
+  height:510px;
+  width: 410px;  
 `
 
 function App() {
