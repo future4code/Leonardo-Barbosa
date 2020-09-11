@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
@@ -29,15 +29,34 @@ img {
 
 
 function TelaDois(props) {
+  const [deuMatch, setDeuMatch] = useState([])
+
+  useEffect(() => {
+    getMatch()
+  }, [])
+
+  const getMatch = () => {
+    axios
+      .get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo/matches")
+      .then(response => {
+          setDeuMatch(response.data.matches)
+        }).catch(erro => {})
+  }
+
   return (
-    
     <div >
       <ContainerHeader>
         <button onClick={props.alterarPagina} ><ArrowBackIosIcon /></button>
         <img src={astromatch}/>
       </ContainerHeader>
       <div>   
-        <p>API</p>
+        {deuMatch.map(item => {
+          return ( 
+            <div key={item.id}>
+              <img src={item.photo} />
+              <label>{item.name}</label>
+            </div>)
+        })}
       </div> 
     </div>
   );
