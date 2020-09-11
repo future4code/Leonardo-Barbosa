@@ -5,6 +5,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import CloseIcon from '@material-ui/icons/Close';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import axios from 'axios';
+import astromatch from '../img/astromatch.svg'
 
 const ContainerPrincipal = styled.div`
 
@@ -41,6 +42,11 @@ const ContainerHeader = styled.div`
     outline:none;
     cursor:pointer;
    }
+   img{
+    height:30px;
+    width:150px;
+    margin-left:-20px
+   }
 `
 
 
@@ -64,7 +70,7 @@ function TelaUm(props) {
     
     <ContainerPrincipal >
         <ContainerHeader>
-          <label>Astro Match</label>
+          <img src={astromatch}/>
           <button>
             <SupervisorAccountIcon onClick={props.alterarPagina}/>
           </button>

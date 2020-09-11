@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import astromatch from '../img/astromatch.svg'
+
 
 const ContainerHeader = styled.div`
   display:flex;
@@ -9,15 +11,19 @@ const ContainerHeader = styled.div`
   margin-right:150px;
   padding:5px;
 
-   button{
+  button{
     display:flex;
     justify-content: flex-start;
-   }
-button {
-  background:none;
-  border:none;
-  outline:none;
-  cursor:pointer;
+    background:none;
+    border:none;
+    outline:none;
+    cursor:pointer;
+  }
+img {
+  height:30px;
+  width:150px;
+  margin-right:-30px;
+   
 }
 `
 
@@ -28,7 +34,7 @@ function TelaDois(props) {
     <div >
       <ContainerHeader>
         <button onClick={props.alterarPagina} ><ArrowBackIosIcon /></button>
-        <label>Astro Match</label>
+        <img src={astromatch}/>
       </ContainerHeader>
       <div>   
         <p>API</p>
