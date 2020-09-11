@@ -62,7 +62,7 @@ function App() {
     <ContainerMenu>
       {paginaAtual()}
     </ContainerMenu>
-      <button onClick={limparCatchs} >Zerar matches</button>
+      <button onClick={ () => limparCatchs()} >Zerar matches</button>
   </ContainerPai>  
   );
 }

@@ -66,6 +66,24 @@ function TelaUm(props) {
       }).catch(erro => {})
   }
 
+  const selecionarPerfil = () => {
+    const body = {
+      id: pegarProfile.id,
+      choice: true
+    }
+    const headers = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    axios
+      .post("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo/choose-person", body, headers)
+      .then(response => {
+        getProfile()
+      })
+      .catch(erro => {})
+  }
+
   return (
     
     <ContainerPrincipal >
@@ -83,10 +101,10 @@ function TelaUm(props) {
           
           <Botoes>
               <Fab>
-                <CloseIcon />
+                <CloseIcon onClick={() => getProfile()}/>
               </Fab>
               <Fab>
-                <FavoriteIcon color="secondary" />
+                <FavoriteIcon onClick={() => selecionarPerfil()} color="secondary" />
               </Fab>
           </Botoes>
 

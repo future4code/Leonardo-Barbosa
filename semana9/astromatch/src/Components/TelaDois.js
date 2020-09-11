@@ -50,12 +50,8 @@ function TelaDois(props) {
         <img src={astromatch}/>
       </ContainerHeader>
       <div>   
-        {deuMatch.map(item => {
-          return ( 
-            <div key={item.id}>
-              <img src={item.photo} />
-              <label>{item.name}</label>
-            </div>)
+        {deuMatch.map((pessoa) => {
+          return <div key={pessoa.id}> <img width="100px" height="100px" src={pessoa.photo} /> <p>{pessoa.name}</p> </div>
         })}
       </div> 
     </div>
