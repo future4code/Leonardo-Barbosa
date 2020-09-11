@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import TelaUm from './Components/TelaUm'
 import TelaDois from './Components/TelaDois'
+import axios from 'axios'
 
 
 
@@ -43,12 +44,25 @@ function App() {
     }
   }
 
+  
+  const limparCatchs = () => {
+    const headers = {
+      headers:{
+        "Content-Type": "application/json"
+      }
+    }    
+      axios
+        .put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo/clear", headers)
+        .then(response => {})
+        .catch(erro => {})
+  }
+
   return (
   <ContainerPai>
     <ContainerMenu>
       {paginaAtual()}
     </ContainerMenu>
-      <button>Zerar matches</button>
+      <button onClick={limparCatchs} >Zerar matches</button>
   </ContainerPai>  
   );
 }
