@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-function App() {
+function ApplicationFormPage() {
   return (
     <div>
     </div>
   )
 }
 
-export default App
+export default ApplicationFormPage

@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-function App() {
+function ListTripsPage() {
   return (
     <div>
     </div>
   )
 }
 
-export default App
+export default ListTripsPage
