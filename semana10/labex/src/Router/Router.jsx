@@ -20,10 +20,10 @@ const Router = () => {
         <Route exact path="/application-form">
          <ApplicationFormPage/>
         </Route>
-        <Route exact path="/trips/create ">
+        <Route exact path="/trips/create">
          <CreateTripPage/>
         </Route>
-        <Route exact path="/trips/list ">
+        <Route exact path="/trips/list">
          <ListTripsPage/>
         </Route>
         <Route exact path="/trips/details">

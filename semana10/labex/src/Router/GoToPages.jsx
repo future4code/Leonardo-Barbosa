@@ -9,7 +9,7 @@ export const goToCreateTripPage = (history) => {
     history.push("/trips/create")
   }
 export const goToListTripsPage = (history) => {
-    history.push("/trips/list ")
+    history.push("/trips/list")
   }
 export const goToLoginPage = (history) => {
     history.push("/login")

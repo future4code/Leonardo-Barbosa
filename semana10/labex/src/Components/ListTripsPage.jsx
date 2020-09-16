@@ -7,6 +7,7 @@ function ListTripsPage() {
 
   return (
     <div>
+      <h1>ListTripsPage</h1>
     </div>
   )
 }
