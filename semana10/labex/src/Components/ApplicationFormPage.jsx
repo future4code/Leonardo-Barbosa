@@ -1,47 +1,40 @@
-import React, {useState} from 'react'
+import React  from 'react'
 import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
+import useForm from '../Hooks/useForm'
 
 function ApplicationFormPage() {
-  
-  const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-  const [applicationText, setApplicationText] = useState('')
-  const [profession, setProfession] = useState('')
-  const [country, setCountry] = useState('')
-  const [trip, setTrip] = useState('')
+  const {form, onChange, resetState}  = useForm({
+    name:"",
+    age:"",
+    applicationText:"",
+    profession:"",
+    country:"",
+    trip:""
+  })
 
-  const handleChangeName = (event) => {
-      setName(event.target.value)
-  }
-  const handleChangeAge = (event) => {
-      setAge(event.target.value)
-  }
-  const handleChangeApplicationText = (event) => {
-      setApplicationText(event.target.value)
-  }
-  const handleChangeProfession = (event) => {
-      setProfession(event.target.value)
-  }  
-  const handleChangeCountry = (event) => {
-      setCountry(event.target.value)
-  }
-  const handleChangeTrip = (event) => {
-      setTrip(event.target.value)
+  const handleInputChange = (event) =>{
+    const { name, value } = event.target
+    onChange(name, value)
+  } 
+  
+  const handleSubmittion = (event) =>{
+    event.preventDefault()
+    resetState()
+    console.log(form)
   }
    
   return (
     <div>
       <h1>ApplicationFormPage</h1>
-      <FormControl>
-        <TextField value={name} onChange={handleChangeName} label="Nome" variant="outlined" />
-        <TextField value={age} onChange={handleChangeAge} label="Idade" variant="outlined" />
-        <TextField value={applicationText} onChange={handleChangeApplicationText} label="Motivo" variant="outlined" />
-        <TextField value={profession} onChange={handleChangeProfession} label="Profissão" variant="outlined" />
-        <TextField value={country} onChange={handleChangeCountry} label="País" variant="outlined" />
-        <TextField value={trip} onChange={handleChangeTrip} label="Viagem" variant="outlined" />
+      <form onSubmit={handleSubmittion}>
+        <TextField name="name" value={form.name} onChange={handleInputChange} label="Nome" variant="outlined" />
+        <TextField name="age" type="number" value={form.age} onChange={handleInputChange} label="Idade" variant="outlined" />
+        <TextField name="applicationText" value={form.applicationText} onChange={handleInputChange} label="Motivo" variant="outlined" />
+        <TextField name="profession" value={form.profession} onChange={handleInputChange} label="Profissão" variant="outlined" />
+        <TextField name="country" value={form.country} onChange={handleInputChange} label="País" variant="outlined" />
+        <TextField name="trip" value={form.trip} onChange={handleInputChange} label="Viagem" variant="outlined" />
         <button>Enviar</button>
-      </FormControl>
+      </form>
     </div>
   )
 }
