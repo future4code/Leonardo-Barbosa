@@ -7,10 +7,8 @@ export const useProtectPage = (parametro) => {
   useEffect(() => {
     const token = window.localStorage.getItem("token")
 
-    if (token) {
-      parametro()
-    } else {
+    if (!token) {
       history.push("/login")
-    }
+    } 
   }, [history, parametro])
 }

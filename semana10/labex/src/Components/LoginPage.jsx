@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import TextField from '@material-ui/core/TextField'
 
 
 function LoginPage() {
@@ -35,17 +36,13 @@ function LoginPage() {
       .then((response) => {
         localStorage.setItem("token", response.data.token)
         history.push("/trips/details")
-      })
-      .catch((erro) => {})
+      }).catch((erro) => {})
   }
-  
-  
-  
   
   return (
     <div>
-      <input value={emailValue} onChange={handleEmailChange} />
-      <input value={passwordValue} onChange={handlePasswordChange} />
+      <TextField label="Email" variant="outlined" required value={emailValue} onChange={handleEmailChange} />
+      <TextField label="Senha" variant="outlined" required value={passwordValue} onChange={handlePasswordChange} />
       <button onClick={handleLogin}>Fazer Login</button>
     </div>
   )
