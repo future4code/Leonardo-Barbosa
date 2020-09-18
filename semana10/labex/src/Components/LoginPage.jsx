@@ -73,7 +73,7 @@ function LoginPage() {
       <ContainerHome>
         <h2>Login para Administrador</h2>
         <TextField label="Email" variant="outlined" required value={emailValue} onChange={handleEmailChange} />
-        <TextField label="Senha" variant="outlined" required value={passwordValue} onChange={handlePasswordChange} />
+        <TextField label="Senha" variant="outlined" required value={passwordValue} onChange={handlePasswordChange} type="password"/>
         <button onClick={handleLogin}>Fazer Login</button>
       </ContainerHome>
     </div>
