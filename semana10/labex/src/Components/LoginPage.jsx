@@ -23,8 +23,7 @@ const ContainerMain = styled.div`
   Button{
      margin-left:50px;
   }
-  
-  `
+`
 
 
 

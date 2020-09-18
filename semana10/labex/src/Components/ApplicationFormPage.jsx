@@ -51,7 +51,6 @@ function ApplicationFormPage() {
   const handleSubmittion = (event) =>{
     event.preventDefault()
     resetState()
-    console.log(form)
   }
    
   return (

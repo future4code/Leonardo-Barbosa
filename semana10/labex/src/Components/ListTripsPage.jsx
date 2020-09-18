@@ -65,12 +65,12 @@ function ListTripsPage() {
       <ContainerHome>
         {trip.map(item => {
           return (
-            <div>
+            <div key={item.id}>
                <p><strong>Planeta:</strong> {item.planet} <br/></p> 
                <p><strong>Evento:</strong> {item.name} <br/></p>
                <p><strong>Descrição:</strong> {item.description} <br/></p>
                <p><strong>Data:</strong> {item.date} <br/></p>
-               <p><strong>Dias de Duração:</strong> {item.durationInDays} <br/></p>
+               <p><strong>Duração em dias:</strong> {item.durationInDays} <br/></p>
             </div>
           )
         })}
