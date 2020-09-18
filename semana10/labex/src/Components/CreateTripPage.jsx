@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useProtectPage } from '../Hooks/useProtectPage'
 import {goToHomePage} from '../Router/GoToPages'
 import {goToListTripsPage} from '../Router/GoToPages'
@@ -73,7 +73,7 @@ function CreateTripPage() {
         <Button variant="contained" color="primary" onClick={() => goToTripDetailsPage(history)}>Candidatos</Button>
       </ContainerMain>
       <ContainerHome>
-        <h1>CreateTripPage</h1>
+        <h1>Criar Viagem</h1>
         <ContainerForm> 
           <form onSubmit={handleSubmittion}>
             <TextField name="name" value={form.name}  onChange={handleInputChange} label="Evento" variant="filled" required /><br/><br/>

@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, {useState, useEffect}  from 'react'
 import TextField from '@material-ui/core/TextField'
 import useForm from '../Hooks/useForm'
 import styled from 'styled-components'
@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button'
 import { useHistory } from 'react-router-dom'
 import {goToHomePage} from '../Router/GoToPages'
 import {goToListTripsPage} from '../Router/GoToPages'
+import axios from 'axios'
+
 
 const ContainerHome = styled.div`
   display:flex;
@@ -34,12 +36,27 @@ const ContainerForm = styled.div`
 function ApplicationFormPage() {
   const {form, onChange, resetState}  = useForm({
     name:"",
-    age:"",
+    age:0,
     applicationText:"",
     profession:"",
-    country:"",
-    trip:""
+    country:"", 
+    tripId:""
   })
+
+  const [trip, SetTrip] = useState([])
+
+  useEffect(() => {
+    getListTrips()
+  }, [])
+
+  const getListTrips = () =>{
+    
+    axios
+      .get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-jackson/trips")
+      .then(response => {
+        SetTrip(response.data.trips)
+      }).catch(erro =>{})
+  }
 
   const history = useHistory()
 
@@ -51,8 +68,16 @@ function ApplicationFormPage() {
   const handleSubmittion = (event) =>{
     event.preventDefault()
     resetState()
+    createForm()
   }
-   
+
+  const createForm = () => {
+    axios
+      .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-jackson/trips/${form.tripId}/apply`, form)
+      .then(response => {alert("Formulario Enviado")})
+      .catch(error => {console.log(error)})
+  }
+  
   return (
     <div>
       <ContainerMain>
@@ -69,7 +94,15 @@ function ApplicationFormPage() {
           <TextField name="applicationText"  value={form.applicationText} onChange={handleInputChange} label="Motivo" variant="filled" required/><br/><br/>
           <TextField name="profession"  value={form.profession} onChange={handleInputChange} label="Profissão" variant="filled" required/><br/><br/>
           <TextField name="country"  value={form.country} onChange={handleInputChange} label="País" variant="filled" required/><br/><br/>
-          <TextField name="trip"  value={form.trip} onChange={handleInputChange} label="Viagem" variant="filled" required/><br/><br/>
+          <select value={form.tripId}>
+            <option value="" >Selecione a Viagem</option>
+            {trip.map(item => {
+              return(
+              <option key={item.id} value={item.id}>{item.name}</option>
+               
+              )
+            })}
+          </select>
           <button>Enviar</button>
         </form>
       </ContainerForm> 

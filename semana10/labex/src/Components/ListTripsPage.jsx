@@ -6,7 +6,7 @@ import {goToApplicationFormPage} from '../Router/GoToPages'
 import labex from '../img/labex.png'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-
+import { useProtectPage } from '../Hooks/useProtectPage'
 
 const ContainerMain = styled.div`
   display:flex;
@@ -36,7 +36,7 @@ const ContainerH = styled.h1`
 
 
 function ListTripsPage() {
-  
+  useProtectPage()
   const [trip, SetTrip] = useState([])
   const history = useHistory()
 
@@ -49,7 +49,6 @@ function ListTripsPage() {
     axios
       .get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-jackson/trips")
       .then(response => {
-        console.log(response.data.trips)
         SetTrip(response.data.trips)
       }).catch(erro =>{})
   }
