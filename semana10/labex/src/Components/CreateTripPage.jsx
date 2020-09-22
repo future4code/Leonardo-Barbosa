@@ -70,7 +70,7 @@ function CreateTripPage() {
       <img src={labex}></img>
         <Button variant="contained" color="primary" onClick={() => goToHomePage(history)}>Home</Button>
         <Button variant="contained" color="primary" onClick={() => goToListTripsPage(history)}>Viagens</Button>
-        <Button variant="contained" color="primary" onClick={() => goToTripDetailsPage(history)}>Candidatos</Button>
+        <Button variant="contained" color="primary" onClick={() => goToTripDetailsPage(history)}>Detalhes</Button>
       </ContainerMain>
       <ContainerHome>
         <h1>Criar Viagem</h1>
@@ -81,7 +81,7 @@ function CreateTripPage() {
             <TextField name="date" type="date" value={form.date} onChange={handleInputChange} variant="filled" required/><br/><br/>
             <TextField name="description"  value={form.description} onChange={handleInputChange} label="Descrição" variant="filled" required/><br/><br/>
             <TextField name="durationInDays" type="day"  value={form.durationInDays} onChange={handleInputChange} label="Duração em Dias" variant="filled" required/><br/><br/>
-            <button>Enviar</button>
+            <Button variant={'contained'} color={'primary'} type={'submit'} >Enviar</Button>
           </form>
         </ContainerForm>
       </ContainerHome>

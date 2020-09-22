@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import {goToLoginPage} from '../Router/GoToPages'
-import {goToListTripsPage} from '../Router/GoToPages'
 import {goToApplicationFormPage} from '../Router/GoToPages'
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
@@ -41,12 +40,11 @@ function HomePage() {
   return (
     <ContainerBody>
       <ContainerHome>
-        <img src={labex}></img>
-      <ContainerButton>  
-        <Button variant="contained" color="primary" onClick={() => goToLoginPage(history)}>Login</Button>
-        <Button variant="contained" color="primary" onClick={() => goToApplicationFormPage(history)}>Inscreva-se</Button>
-      </ContainerButton>
-        <Button variant="outlined" color="primary" onClick={() => goToListTripsPage(history)}>Nossas Viagens</Button>
+          <img src={labex}></img>
+        <ContainerButton>  
+          <Button variant="contained" color="primary" onClick={() => goToLoginPage(history)}>Login</Button>
+          <Button variant="contained" color="primary" onClick={() => goToApplicationFormPage(history)}>Inscreva-se</Button>
+        </ContainerButton>
       </ContainerHome>
     </ContainerBody>
   )

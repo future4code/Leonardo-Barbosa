@@ -2,7 +2,8 @@ import React, {useState, useEffect } from 'react'
 import axios from 'axios'
 import Button from '@material-ui/core/Button'
 import {goToHomePage} from '../Router/GoToPages'
-import {goToApplicationFormPage} from '../Router/GoToPages'
+import {goToTripDetailsPage} from '../Router/GoToPages'
+import {goToCreateTripPage} from '../Router/GoToPages'
 import labex from '../img/labex.png'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
@@ -58,7 +59,8 @@ function ListTripsPage() {
       <ContainerMain>
       <img src={labex}></img>
         <Button variant="contained" color="primary" onClick={() => goToHomePage(history)}>Home</Button>
-        <Button variant="contained" color="primary" onClick={() =>  goToApplicationFormPage(history)}>Inscreva-se</Button>
+        <Button variant="contained" color="primary" onClick={() =>  goToTripDetailsPage(history)}>Detalhes</Button>
+        <Button variant="contained" color="primary" onClick={() =>  goToCreateTripPage(history)}>Criar Viagem</Button>
       </ContainerMain>
       <ContainerH>Rotas Disponíveis</ContainerH>
       <ContainerHome>

@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import labex from '../img/labex.png'
 import Button from '@material-ui/core/Button'
 import {goToHomePage} from '../Router/GoToPages'
-import {goToListTripsPage} from '../Router/GoToPages'
 
 
 const ContainerHome = styled.div`
@@ -36,7 +35,7 @@ function LoginPage() {
     const token = window.localStorage.getItem("token")
 
     if (token) {
-      history.push("/trips/details")
+      history.push("/trips/list")
     }
   }, [history])
 
@@ -58,7 +57,7 @@ function LoginPage() {
       .post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-jackson/login", body)
       .then((response) => {
         localStorage.setItem("token", response.data.token)
-        history.push("/trips/details")
+        history.push("/trips/list")
       }).catch((erro) => {})
   }
   
@@ -67,7 +66,6 @@ function LoginPage() {
       <ContainerMain>
       <img src={labex}></img>
         <Button variant="contained" color="primary" onClick={() => goToHomePage(history)}>Home</Button>
-        <Button variant="contained" color="primary" onClick={() => goToListTripsPage(history)}>Viagens</Button>
       </ContainerMain>
       <ContainerHome>
         <h2>Login para Administrador</h2>
