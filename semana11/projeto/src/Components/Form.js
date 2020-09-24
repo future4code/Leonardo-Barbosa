@@ -68,6 +68,7 @@ function Form() {
                      name="text"
                      onChange={handleInputChange}
                      autocomplete="off"
+                     required
                      />
                     <select value={form.day} name="day" onChange={handleInputChange}>
                         <option>-Escolha o dia-</option>
