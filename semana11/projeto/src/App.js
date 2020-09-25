@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
 import Form from './/Components/Form'
+import { ChakraProvider } from "@chakra-ui/core"
 
 function App() {
+
   return (
-    <div>
-      <Form />
-    </div>
+    <ChakraProvider>
+      <Form/>
+    </ChakraProvider>
   );
 }
 
