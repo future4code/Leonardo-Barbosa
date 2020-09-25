@@ -45,7 +45,7 @@ function Form() {
       }, [])
 
     const AddTask = async () => {
-        if (form.text !== ""){
+        if (form.text !== "" && form.day !== ""){
         await axios.post("https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-jackson-leonardo", form)
         getTasks()
     }}
