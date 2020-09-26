@@ -6,8 +6,9 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core"
 import { Button, Stack } from "@chakra-ui/core"
 import { Select, Heading } from "@chakra-ui/core"
 import { Input, Text } from "@chakra-ui/core"
-import {DeleteIcon} from '@chakra-ui/icons'
-import { ListItem, UnorderedList } from "@chakra-ui/core"
+import { DeleteIcon, MoonIcon, SunIcon,  } from '@chakra-ui/icons'
+import { ListItem, UnorderedList, useColorMode } from "@chakra-ui/core"
+
 
 const FormContainer = styled.div`
     height: 10vh;
@@ -17,6 +18,7 @@ const FormContainer = styled.div`
 `
 
 function Form() {
+    const { colorMode, toggleColorMode } = useColorMode()
     const [taskList, setTaskList] = useState([])
     const { form, onChange, resetState } = useForm({
         text:"",
@@ -74,7 +76,7 @@ function Form() {
     }
 
   return (
-    <Stack bgColor="#F7FAFC" width="100vw" height="100vh">
+    <Stack  width="100vw" height="100vh">
         <FormContainer>
             <form onSubmit={handleSubmittion}>
                     <Stack direction="row" >
@@ -97,7 +99,7 @@ function Form() {
                             <option value="sabado">Sábado</option>
                         </Select>
                         <Button width="200px" colorScheme="teal" type="submit" size="sm" onClick={AddTask}>Criar tarefa</Button>
-                        
+                        <Button width="50px" colorScheme="teal" size="sm" onClick={toggleColorMode}>{colorMode === "light" ? <MoonIcon/> : <SunIcon/>}</Button>
                     </Stack>
                 </form>
         </FormContainer>
