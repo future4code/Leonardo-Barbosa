@@ -8,7 +8,7 @@ import SingUpPage from '../screens/SingUpPage/SingUpPage'
 const Router = () => {
     return (
         <Switch>
-            <Route exact path={'/login'}>
+            <Route exact path={['/login', '/']}>
                 <LoginPage />
             </Route>
             <Route exact path={'/feed'}>
