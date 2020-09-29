@@ -12,4 +12,4 @@ export const goToSingUp = (history) => {
   
 export const goToPost = (history) => {
     history.push('/post')
-}  
+}
