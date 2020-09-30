@@ -27,6 +27,7 @@ const SingUpPage = () => {
       .post("https://us-central1-labenu-apis.cloudfunctions.net/labEddit/signup", form)
       .then(response => {
         localStorage.setItem("token", response.data.token)
+        history.push("/feed")
       })
       .catch(erro =>{})
   }
