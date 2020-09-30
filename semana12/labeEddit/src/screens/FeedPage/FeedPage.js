@@ -1,3 +1,4 @@
+import { Box, Divider, Text} from '@chakra-ui/core'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -23,18 +24,29 @@ const FeedPage = () => {
 
 
   return (
-    <div>
+    <Box d="flex" flexDirection="column" alignItems="center" >
       {post.map(item => {
         return (
-          <div>
-            <p>{item.username}</p>
-            <p>{item.text}</p>
-            <p>{item.votesCount}</p>
-
-          </div>         
+          <Box borderWidth="2px" borderRadius="sm" p="2" marginBottom={3} height={{
+            base: "95%",
+            md: "50%",
+            xl: "35%",
+          }}
+          width={[
+            "95%",
+            "50%", 
+            "35%", 
+            "25%", 
+          ]}>
+            
+            <Text fontSize="lg" fontFamily="arial" textAlign="center">{item.username}</Text> <Divider border="2px"/>
+            <p align="center">{item.text}</p><Divider border="2px"/>
+            <Text >{item.votesCount}</Text>
+            
+          </Box>         
         )
       })}
-    </div>
+    </Box>
   )
 }
 
