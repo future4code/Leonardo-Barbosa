@@ -48,9 +48,9 @@ const SingUpPage = () => {
       <form onSubmit={handleSubmittion}  autoComplete="off"> 
         <Box padding="4"  maxW="3x1" >
           <Stack spacing={4} w="300px">
-            <Input name="username" required value={form.username} onChange={handleInputChange} type="text" placeholder="Digite seu Nome" size="md" />
-            <Input name="email" required value={form.email} onChange={handleInputChange} type="email" placeholder="E-mail" size="md" />
-            <Input name="password" required value={form.password} onChange={handleInputChange} type="password" placeholder="Digite a Senha" size="md" />
+            <Input borderColor="blue.200" name="username" required value={form.username} onChange={handleInputChange} type="text" placeholder="Digite seu Nome" size="md" />
+            <Input borderColor="blue.200" name="email" required value={form.email} onChange={handleInputChange} type="email" placeholder="E-mail" size="md" />
+            <Input borderColor="blue.200" name="password" required value={form.password} onChange={handleInputChange} type="password" placeholder="Digite a Senha" size="md" />
             <Button type="submit" colorScheme="blue" size="md" >Cadastrar</Button>
           </Stack>
         </Box>

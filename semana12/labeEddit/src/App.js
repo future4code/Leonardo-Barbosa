@@ -4,9 +4,8 @@ import { ChakraProvider, Box, Text, Img } from "@chakra-ui/core"
 import { BrowserRouter } from 'react-router-dom'
 import alien from './img/alien.svg'
 
-
-
 const App = () => {
+  
   return (
     <ChakraProvider>
       <BrowserRouter>

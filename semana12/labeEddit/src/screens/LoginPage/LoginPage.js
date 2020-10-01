@@ -45,12 +45,12 @@ const LoginPage = () => {
 
   return (
     <Container maxW="xl" centerContent >
-      <Box padding="4"  maxW="3x1">
+      <Box  padding="4"  maxW="3x1">
         <Stack spacing={4} w="300px">
-          <Input  autoComplete="off" name="email" value={emailValue} onChange={handleEmailChange} type="email" placeholder="E-mail" size="md" />
-          <Input name="password" value={passwordValue} onChange={handlePasswordChange} type="password" placeholder="Digite a Senha" size="md" />
+          <Input borderColor="blue.200" autoComplete="off" name="email" value={emailValue} onChange={handleEmailChange} type="email" placeholder="E-mail" size="md" />
+          <Input borderColor="blue.200" name="password" value={passwordValue} onChange={handlePasswordChange} type="password" placeholder="Digite a Senha" size="md" />
           <Button colorScheme="blue" size="md" onClick={handleLogin}>Entrar</Button>
-          <Button onClick ={() =>goToSingUp(history)}colorScheme="blue" size="md" variant="link">Cadastre-se Aqui</Button>
+          <Button onClick={() =>goToSingUp(history)} colorScheme="blue" size="md" variant="link">Cadastre-se Aqui</Button>
         </Stack>
       </Box>
     </Container>
