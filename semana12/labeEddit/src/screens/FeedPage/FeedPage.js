@@ -2,10 +2,13 @@ import { Box, Button, Divider, Input, Text} from '@chakra-ui/core'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useProtectPage } from '../../hooks/UseProtectPage'
-import {TriangleUpIcon, TriangleDownIcon} from '@chakra-ui/icons'
+import {TriangleUpIcon, TriangleDownIcon, ChatIcon} from '@chakra-ui/icons'
+import { useHistory } from 'react-router-dom'
+import { goToPost } from '../../router/GoToPages'
 
 const FeedPage = () => {
   useProtectPage()  
+  const history = useHistory()
   const [post, setPost] = useState([])
   const [newPost, setNewPost] = useState("")
   const [title, setTitle] = useState("")
@@ -25,6 +28,8 @@ const FeedPage = () => {
       })
       .catch(error => {})
   }
+
+
   const handlePostChange = (event) => {
     setNewPost(event.target.value)
   }
@@ -97,7 +102,7 @@ const FeedPage = () => {
       {post.map(item => {
         return (
           
-          <Box  borderColor="blue.500" borderWidth="2px" borderRadius="sm" p="2" marginBottom={3} height={{
+          <Box borderColor="blue.500" borderWidth="2px" borderRadius="sm" p="2" marginBottom={3} height={{
             base: "95%",
             md: "50%",
             xl: "35%",
@@ -109,14 +114,16 @@ const FeedPage = () => {
             "25%", 
           ]}>
             
-            <Text fontSize="lg" fontFamily="arial" textAlign="center">{item.username}</Text> <Divider border="2px"/>
-            <Text paddingTop="2" align="center">{item.title}</Text>
+            <Box d="flex" justifyContent="center" >
+              <Text as="button" onClick={() =>goToPost(history, item.id)} fontSize="lg" fontFamily="arial" align="center">{item.username}</Text> 
+            </Box><Divider border="2px"/>
+            <Text paddingTop="1" align="center">{item.title}</Text>
             <Text border='solid' borderColor="blue.100" paddingTop="1" h="100px" overflow="auto" align="center">{item.text}</Text>
             <Box d="flex" justifyContent="space-between">
               <Text ><Button variant="none" size="sm" onClick={() => votePost(+1, item.id)} ><TriangleUpIcon/></Button>
               {item.votesCount} 
               <Button variant="none" size="sm" onClick={() => votePost(-1, item.id)} ><TriangleDownIcon/></Button></Text>
-              <Text >{item.commentsCount} Comentários</Text>
+              <Text ><ChatIcon/> {item.commentsCount} </Text>
             </Box>
           </Box>         
         )

@@ -10,6 +10,6 @@ export const goToSingUp = (history) => {
     history.push('/cadastro')
 }
   
-export const goToPost = (history) => {
-    history.push('/post')
+export const goToPost = (history, id) => {
+    history.push(`/post/${id}`)
 }
