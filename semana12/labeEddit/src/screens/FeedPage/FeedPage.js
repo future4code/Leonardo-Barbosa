@@ -23,12 +23,9 @@ const FeedPage = () => {
       .get("https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts", {headers:{
         Authorization: token
       }}).then(response => {
-        console.log(response.data.posts)
         setPost(response.data.posts)
-      })
-      .catch(error => {})
+      }).catch(error => {})
   }
-
 
   const handlePostChange = (event) => {
     setNewPost(event.target.value)
@@ -48,15 +45,8 @@ const FeedPage = () => {
         Authorization: token
       }}).then(reponse => {
         getAllPost()
-        console.log(reponse)
-      }).catch(error => {
-        console.log(error)
-      })
+      }).catch(error => {})
   }
-
-
-
-
   const createPost = () => {
     const token = window.localStorage.getItem("token")
     const body = {
@@ -70,15 +60,8 @@ const FeedPage = () => {
         getAllPost()
         setTitle("")
         setNewPost("")
-        console.log(response)
-      })
-         .catch(error =>{ 
-          console.log(error)
-         })
+      }).catch(error =>{})
   }
-
-
-
   return (
     <Box d="flex" flexDirection="column" alignItems="center" >
       <Box  borderColor="blue.500" borderWidth="2px"
@@ -101,8 +84,7 @@ const FeedPage = () => {
       </Box>
       {post.map(item => {
         return (
-          
-          <Box borderColor="blue.500" borderWidth="2px" borderRadius="sm" p="2" marginBottom={3} height={{
+          <Box key={item.id} borderColor="blue.500" borderWidth="2px" borderRadius="sm" p="2" marginBottom={3} height={{
             base: "95%",
             md: "50%",
             xl: "35%",
@@ -113,14 +95,13 @@ const FeedPage = () => {
             "35%", 
             "25%", 
           ]}>
-            
             <Box d="flex" justifyContent="center" >
               <Text as="button" onClick={() =>goToPost(history, item.id)} fontSize="lg" fontFamily="arial" align="center">{item.username}</Text> 
             </Box><Divider border="2px"/>
             <Text paddingTop="1" align="center">{item.title}</Text>
             <Text border='solid' borderColor="blue.100" paddingTop="1" h="100px" overflow="auto" align="center">{item.text}</Text>
             <Box d="flex" justifyContent="space-between">
-              <Text ><Button variant="none" size="sm" onClick={() => votePost(+1, item.id)} ><TriangleUpIcon/></Button>
+              <Text ><Button variant="none" size="sm" onClick={() => votePost(1, item.id)} ><TriangleUpIcon/></Button>
               {item.votesCount} 
               <Button variant="none" size="sm" onClick={() => votePost(-1, item.id)} ><TriangleDownIcon/></Button></Text>
               <Text as="button" onClick={() =>goToPost(history, item.id)} ><ChatIcon/> {item.commentsCount} </Text>
