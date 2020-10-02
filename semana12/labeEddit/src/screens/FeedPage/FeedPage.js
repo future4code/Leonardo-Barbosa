@@ -123,7 +123,7 @@ const FeedPage = () => {
               <Text ><Button variant="none" size="sm" onClick={() => votePost(+1, item.id)} ><TriangleUpIcon/></Button>
               {item.votesCount} 
               <Button variant="none" size="sm" onClick={() => votePost(-1, item.id)} ><TriangleDownIcon/></Button></Text>
-              <Text ><ChatIcon/> {item.commentsCount} </Text>
+              <Text as="button" onClick={() =>goToPost(history, item.id)} ><ChatIcon/> {item.commentsCount} </Text>
             </Box>
           </Box>         
         )
