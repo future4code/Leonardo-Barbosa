@@ -21,16 +21,31 @@ process.argv[1]; //SEMPRE O ARQUIVO QUE ESTAMOS RODANDO
 
 // EXERCÍCIO 2 -
 
-    // const operation = process.argv[2];
-    // const numberOne = Number(process.argv[3]);
-    // const numberTwo = Number(process.argv[4]);
+// const operation = process.argv[2];
+// const numberOne = Number(process.argv[3]);
+// const numberTwo = Number(process.argv[4]);
 
-    //     if ( operation === 'add') {
-    //         numberOne + numberTwo
-    //     } else if ( operation === 'sub') {
-    //         numberOne - numberTwo
-    //     } else if ( operation === 'mult') {
-    //         numberOne * numberTwo
-    //     } else if ( operation === 'div') {
-    //         numberOne / numberTwo
-    //     }
+//     if ( operation === 'add') {
+//         console.log(numberOne + numberTwo)
+//     } else if ( operation === 'sub') {
+//         console.log(numberOne - numberTwo)
+//     } else if ( operation === 'mult') {
+//         console.log(numberOne * numberTwo)
+//     } else if ( operation === 'div') {
+//         console.log(numberOne / numberTwo)
+//     }
+
+
+// EXERCÍCIO 3 -
+
+// const newTask = process.argv[2];
+
+// const task = ['Lavar a louça'];
+
+// task.push( newTask )
+
+// console.log(task)
+
+
+// EXERCÍCIO 4 -
+
