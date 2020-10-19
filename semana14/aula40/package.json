@@ -1,0 +1,13 @@
+{
+  "name": "aula40",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Leonardo",
+  "license": "ISC"
+}
