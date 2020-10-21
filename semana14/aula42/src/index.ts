@@ -13,71 +13,48 @@ app.get('/countries/all', (req: Request, res: Response) => {
     id: country.id,
     name: country.name
   }))
-  
+
   res.status(200).send(result)
 })
 
+app.get("/countries/search", (req: Request, res: Response) => {
+  let result: country[] = countries
+
+  try {
+    if (req.query.name) {
+      result = result.filter(
+        country => country.name.includes(String(req.query.name).toLowerCase())
+      )
+      res.status(200).send(result)
+    }
+    if (req.query.capital) {
+      result = result.filter(
+        country => country.capital.includes(String(req.query.capital).toLowerCase())
+      )
+      res.status(200).send(result)
+    }
+    if (req.query.continent) {
+      result = result.filter(
+        country => country.continent.includes(String(req.query.continent).toLowerCase())
+      )
+      res.status(200).send(result)
+    }
+  }  catch (error) {
+    res.status(404).send()
+  }
+})
 
 app.get('/countries/:id', (req: Request, res: Response) => {
   const result: country | undefined = countries.find(
     country => country.id === Number(req.params.id)
- )
- 
- if (result) {
+  )
+
+  if (result) {
     res.status(200).send(result)
- } else {
+  } else {
     res.status(404).send("Not found")
- }
+  }
 })
-
-
-app.get("/countries/search", (req: Request, res: Response) => {
-
-let result: country[] = countries
-
-if (req.query.name) {
-   result = result.filter(
-      country => country.name.includes(String(req.query.name).toLowerCase())
-   )
-   res.status(200).send(result.length)
-}
-
-else if (req.query.capital) {
-   result = result.filter(
-      country => country.capital.includes(String(req.query.capital).toLowerCase())
-   )
-   res.status(200).send(result.length)
-}
-
-else if (req.query.continent) {
-   result = result.filter(
-      country => country.continent.includes(String(req.query.continent).toLowerCase())
-   )
-   res.status(200).send(result.length)
-} 
-else {
-  res.status(404).send('Not Found')
-}
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.listen(3005, () => {
