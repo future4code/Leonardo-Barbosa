@@ -1,0 +1,14 @@
+{
+  "name": "aula41",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/exe02.js",
+    "buscarPostsPorAutor": "clear && tsc && node ./build/exe03.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
