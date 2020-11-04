@@ -1,16 +1,23 @@
 import { Request, Response } from 'express';
-import selectAllUsers from "../data/selectAllUsers"
+import { filterUserByType } from '../data/filterUserByType'
+
 
 export const getUserByType = async(req: Request,res: Response): Promise<void> =>{
    try {
-      const users = await selectAllUsers()
-
-      if(!users.length){
-         res.statusCode = 404
-         throw new Error("No recipes found")
+      const type = String(req.query.type).toLowerCase();
+      
+      if(!type) {
+         throw new Error('Você deve inserir um valor para "type"')
       }
 
-      res.status(200).send(users)
+      const result = await filterUserByType(type);
+
+      if(!result.length) {
+         res.statusCode = 404
+         throw new Error('Você deve inserir "cx", "operations" ou "teacher"')
+      }
+
+      res.status(200).send(result)
       
    } catch (error) {
       console.log(error)

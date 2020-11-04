@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { getAllUsers } from "./endpoints/getAllUsers";
 import { getUserByName } from "./endpoints/getUserByName";
+import { getUserByType } from "./endpoints/getUserByType";
 
 dotenv.config();
 
@@ -25,7 +26,8 @@ app.use(cors())
 
 // endpoints aqui
 app.get('/users', getAllUsers)
-app.get('/users/search', getUserByName)
+// app.get('/users/search', getUserByName)
+app.get('/users/search', getUserByType)
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
