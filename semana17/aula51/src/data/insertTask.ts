@@ -7,7 +7,7 @@ export default async function insertTask(
     deadline: string,
     authorId: string
 ) {
-    await connection('to_do_list_tasks')
+    await connection('To_do_List_Task')
         .insert({
             id,
             title,

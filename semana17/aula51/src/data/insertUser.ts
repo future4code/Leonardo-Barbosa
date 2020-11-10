@@ -5,13 +5,15 @@ export default async function insertUser(
     name: string,
     nickname: string,
     email: string,
-    password: string
+    password: string,
+    role: string
 ) {
     await connection.insert({
         id,
         name,
         nickname,
         email,
-        password
-    }).into('to_do_list_users')
+        password,
+        role
+    }).into('To_do_List_User')
 }

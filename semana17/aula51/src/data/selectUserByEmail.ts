@@ -5,14 +5,15 @@ export type User = {
    name: string,
    nickname: string,
    email: string,
-   password: string
+   password: string,
+   role: string
 }
 
 export default async function selectUserByEmail(
    email: string
 ): Promise<User> {
    try {
-      const result = await connection("to_do_list_users")
+      const result = await connection("To_do_List_User")
          .select("*")
          .where({ email })
 
@@ -22,6 +23,7 @@ export default async function selectUserByEmail(
          nickname: result[0].nickname,
          email: result[0].email,
          password: result[0].password,
+         role: result[0].role
       }
 
    } catch (error) {

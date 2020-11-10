@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import insertUser from "../data/insertUser";
 import { generateToken } from "../services/authenticator";
+import { hash } from "../services/generateHash";
 import {generateId} from "../services/idGenerator";
 
 export default async function createUser(
@@ -20,16 +21,20 @@ export default async function createUser(
 
         const id: string = generateId()
 
+        const hashPassword = await hash(req.body.password)
+
         await insertUser(
             id,
             req.body.name,
             req.body.nickname,
             req.body.email,
-            req.body.password
+            hashPassword,
+            req.body.role
         )
 
          const token: string = generateToken({
-            id
+            id,
+            role: req.body.role
          })
 
         res

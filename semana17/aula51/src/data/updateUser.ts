@@ -7,7 +7,7 @@ export default async function updateUser(
    email?: string
 ) {
 
-   await connection("to_do_list_users")
+   await connection("To_do_List_User")
       .update({
          name, nickname, email
       })
