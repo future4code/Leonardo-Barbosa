@@ -4,6 +4,7 @@ import express from "express";
 import { AddressInfo } from "net";
 import cors from "cors";
 import createUser from "./endpoints/createUser";
+import getUser from "./endpoints/getUser";
 
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/signup', createUser);
+app.get('/user/email', getUser);
 
 
 app.listen(3003, () => {
