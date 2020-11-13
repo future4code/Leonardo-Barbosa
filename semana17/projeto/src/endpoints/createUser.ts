@@ -9,14 +9,13 @@ export default async function createUser(
     res: Response
 ) {
     try {
-
+        
         if (
             !req.body.name ||
-            !req.body.nickname ||
             !req.body.email ||
             !req.body.password
         ) {
-          throw new Error('Preencha os campos "name","nickname", "email" e "password"')
+          throw new Error('Preencha os campos "name", "email" e "password"')
         }
 
         const id: string = generateId()
@@ -26,7 +25,6 @@ export default async function createUser(
         await insertUser(
             id,
             req.body.name,
-            req.body.nickname,
             req.body.email,
             hashPassword,
             req.body.role
