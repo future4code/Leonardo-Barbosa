@@ -2,43 +2,52 @@ import { Request, Response } from 'express'
 import knex from '../database/connection'
 import { compare, generateId, generateToken, hash } from '../services/allServices'
 import { User } from '../types/allTypes'
+import { existsOrError, notExistsOrError } from '../util/validations'
 
 
+class UserController {
 
-// app.post('/users/signup', async (req: Request, res: Response) => {
-//   try {
-//      let message = "Success!"
-//      const { name, email, password } = req.body
+  static async create(req: Request, res: Response) {
+    const { name, email, password } = req.body
 
-//      if (!name || !email || !password) {
-//         res.statusCode = 406
-//         message = '"name", "email" and "password" must be provided'
-//         throw new Error(message)
-//      }
+    try {
+      existsOrError(name, 'name is missing')
+      existsOrError(email, 'email is missing')
+      existsOrError(password, 'password is missing')
 
-//      const id: string = generateId()
+      const userFromDB = await knex('labook_users').where({ email }).first()
+      notExistsOrError(userFromDB, 'email already exists')
 
-//      const cypherPassword = await hash(password);
+    } catch (error) {
+      return res.status(400).send({ message: error })
+    }
 
-//      await knex('labook_users')
-//         .insert({
-//            id,
-//            name,
-//            email,
-//            password: cypherPassword
-//         })
+    const id: string = generateId()
+    const hashPassword = await hash(password)
 
-//      const token: string = generateToken({ id })
+    try {
+      await knex('labook_users').insert({ id, name, email, hashPassword })
 
-//      res.status(201).send({ message, token })
+      const token: string = generateToken({
+        id
+      })
 
-//   } catch (error) {
-//      res.statusCode = 400
-//      let message = error.sqlMessage || error.message
+      return res.status(201).send({
+        message: 'Usuário criado com sucesso!',
+        token
+      })
 
-//      res.send({ message })
-//   }
-// })
+    } catch (error) {
+      res.status(400).send({
+        message: error.message || error.sqlMessage
+      })
+    }
+  }
+}
+
+export default UserController
+
+
 
 // app.post('/users/login', async (req: Request, res: Response) => {
 //   try {
