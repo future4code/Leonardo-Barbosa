@@ -46,9 +46,10 @@ class UserController {
 
   static async login(req: Request, res: Response): Promise<void> {
 
-    let message = "Sucess!"
-
+    
     try {
+      let message = "Success!"
+      
       const { email, password } = req.body
 
       if (!email || !password) {

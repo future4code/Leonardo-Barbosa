@@ -3,70 +3,77 @@ import knex from '../database/connection'
 import { generateId, getTokenData } from '../services/allServices'
 import { AuthenticationData, Post } from '../types/allTypes'
 
+class PostController {
 
+  static async create(req: Request, res: Response) {
 
-// app.post('/posts/create', async (req: Request, res: Response) => {
-//   try {
-//      let message = "Success!"
+    try {
+      let message = "Success!"
 
-//      const { photo, description, type } = req.body
+      const { photo, description, type } = req.body
 
-//      const token: string = req.headers.authorization as string
+      const token: string = req.headers.authorization as string
 
-//      const tokenData: AuthenticationData = getTokenData(token)
+      const tokenData: AuthenticationData = getTokenData(token)
 
-//      const id: string = generateId()
+      const id: string = generateId()
 
-//      await knex("labook_posts")
-//         .insert({
-//            id,
-//            photo,
-//            description,
-//            type,
-//            author_id: tokenData.id
-//         })
+      await knex("labook_posts")
+        .insert({
+          id,
+          photo,
+          description,
+          type,
+          author_id: tokenData.id
+        })
 
-//      res.status(201).send({ message })
+      res.status(201).send({ message })
 
-//   } catch (error) {
-//      let message = error.sqlMessage || error.message
-//      res.statusCode = 400
+    } catch (error) {
+      let message = error.sqlMessage || error.message
+      res.statusCode = 400
 
-//      res.send({ message })
-//   }
-// })
+      res.send({ message })
 
-// app.get('/posts/:id', async (req: Request, res: Response) => {
-//   try {
-//      let message = "Success!"
+    }
+  }
 
-//      const { id } = req.params
+  static async show(req: Request, res: Response) {
 
-//      const queryResult: any = await knex("labook_posts")
-//         .select("*")
-//         .where({ id })
+    try {
+      let message = "Success!"
 
-//      if (!queryResult[0]) {
-//         res.statusCode = 404
-//         message = "Post not found"
-//         throw new Error(message)
-//      }
+      const { id } = req.params
 
-//      const post: Post = {
-//         id: queryResult[0].id,
-//         photo: queryResult[0].photo,
-//         description: queryResult[0].description,
-//         type: queryResult[0].type,
-//         createdAt: queryResult[0].created_at,
-//         authorId: queryResult[0].author_id,
-//      }
+      const queryResult: any = await knex("labook_posts")
+        .select("*")
+        .where({ id })
 
-//      res.status(200).send({ message, post })
+      if (!queryResult[0]) {
+        res.statusCode = 404
+        message = "Post not found"
+        throw new Error(message)
+      }
 
-//   } catch (error) {
-//      let message = error.sqlMessage || error.message
-//      res.statusCode = 400
+      const post: Post = {
+        id: queryResult[0].id,
+        photo: queryResult[0].photo,
+        description: queryResult[0].description,
+        type: queryResult[0].type,
+        createdAt: queryResult[0].created_at,
+        authorId: queryResult[0].author_id,
+      }
 
-//      res.send({ message })
-//   }
-// })
+      res.status(200).send({ message, post })
+
+    } catch (error) {
+
+      let message = error.sqlMessage || error.message
+      res.statusCode = 400
+
+      res.send({ message })
+    }
+  }
+}
+
+export default PostController
