@@ -19,3 +19,28 @@ const words = (inputA:string, inputB:string): boolean => {
 console.log(words("banana", "banan"))
 console.log(words("panana", "banana"))
 console.log(words("amora", "amo"))
+
+// Exercício 2 
+
+const countRepeatInSeq = (input: string): string => {
+  let countCharSeq = 0
+  let lastChar = input[0]
+  let stringResult = input[0]
+  for (let char of input) {
+      if(char === lastChar) {
+          countCharSeq++
+      } else {
+          stringResult += countCharSeq
+          stringResult += char
+          countCharSeq = 1
+      }
+      lastChar = char
+  }
+  stringResult += countCharSeq
+  return stringResult.length > input.length ? input : stringResult
+}
+console.log(countRepeatInSeq("aabbb"))
+console.log(countRepeatInSeq("aabcccccaaa"))
+console.log(countRepeatInSeq("cidade"))
+console.log(countRepeatInSeq("escola"))
+console.log(countRepeatInSeq("flamengo"))
